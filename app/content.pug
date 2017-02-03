@@ -1,0 +1,65 @@
+#app(v-cloak)
+  .title
+    h1 Going out tonight?
+    .title-icons
+      i.fa.fa-map-marker
+      i.fa.fa-cab
+      i.fa.fa-glass
+
+  .subtitle
+    p
+      | 1. Search for bars & clubs venues
+      br
+      span.p-lower
+        span=' * app uses '
+        a(href='www.yelp.com') yelp.com
+        |  api
+      br
+      | 2. Tap going button, then...
+      br
+      span.p-lower * tap going button again to remove your twitter username from the RSVP list
+      br
+      | 3. It'll add your twitter name to the RSVP list
+      br
+      span.p-lower * dont worry your RSVP will expire by the next day
+
+  .location-search
+    input.location-search-input(
+      placeholder='where you at?',
+      v-model='location_input',
+      v-on:keyup.enter='location_input_go')
+    .location-search-go(@click='location_input_go')
+      button(type='submit') GO
+
+  .venues
+    .venue(v-for='venue in venues')
+      .venue-info
+        img.venue_img(
+          v-if='venue.img',
+          :src='venue.img')
+        .venue_txt
+          h2.venue_name_wrap: a.venue_name(:href='venue.link' target='_blank') {{ venue.name }}
+          .flex-gap
+          .venue_going_btn_wrap(@click='going_click(venue)')
+            button.venue_going_btn
+              span(v-if='rsvp_data[venue.id] !== undefined') {{ rsvp_data[venue.id].length }}
+              span(v-if='rsvp_data[venue.id] === undefined') {{ 0 }}
+              span=' GOING'
+        p.venue_description {{ venue.description }}
+      .venue_going(v-if='rsvp_data[venue.id] !== undefined && rsvp_data[venue.id].length !== 0')
+        h3.venu_going_title RSVP List:
+        ul.venue_going_list
+          li.venue_going_li(v-for='p in rsvp_data[venue.id]') {{ p }}
+
+  .footer
+    p.p-lower
+      span=' made by '
+      a(href='blogjono.com') Jonathan T L Lee
+      br
+      br
+      span=' challenge on '
+      a(href='https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app') freecodecamp.com
+      br
+      br
+      span='you can fork this project on '
+      a(href='https://github.com/Lee182') github

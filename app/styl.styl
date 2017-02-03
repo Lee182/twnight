@@ -1,0 +1,142 @@
+@require './lib/jonoreset.styl'
+$main_font = 'Open Sans', sans-serif
+
+body
+  font-family $main_font
+  background-image url('/noise.png')
+  background-color
+  color #fff
+  width 100%
+  height 100%
+  display flex
+  justify-content center
+
+#app
+  color #fff
+  height 100%
+  overflow scroll
+  padding 1rem
+  max-width 600px
+  background-color rgba(#6a3a94, 0.5)
+  @media screen and (min-width: 600px)
+    padding 2rem
+  @media screen and (max-width: 300px)
+    padding .5rem
+
+.title
+  display flex
+  flex-flow row wrap
+  justify-content center
+  width 100%
+  h1
+    width 100%
+    font-size 4.5rem
+    font-weight 200
+    text-align center
+    padding 2rem
+  &-icons
+    width 100%
+    font-size 4.5rem
+    display flex
+    justify-content center
+    i
+      padding 0 1rem
+
+.subtitle
+  padding 2rem 1rem
+  p
+    line-height 1.4
+    font-size 1.5rem
+    font-weight 200
+.p-lower
+  color grey
+  a
+    color #cfcfcf
+    border-bottom .1rem solid #7cbaff
+.instructions
+  padding 1rem
+
+.location-search
+  width 100%
+  display flex
+  &-input
+  &-go
+    display block
+    color #fff
+    border 1px solid #fff
+    border-radius .1rem
+    padding 1rem
+    font-size 1.2rem
+  &-input
+    flex 1
+    overflow hidden
+  &-go
+    flex 0 0 auto
+    margin-left .5rem
+    height 4rem
+    width 4rem
+    border-radius 0 2rem 2rem 0
+    display flex
+    justify-content center
+    align-items center
+
+.venues
+  display flex
+  flex-flow column
+.venue
+  margin 1rem 0
+  border 1px solid #fff6
+  border-radius 1rem
+  padding 1rem
+  &_img
+    float left
+    border-radius 1rem
+    box-shadow 0 1px 2px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2)
+    margin 0 1rem 0 0
+    width 8rem
+  &_txt
+    display flex
+    flex-flow row wrap
+    padding 1rem 1rem 0 0
+  &_name_wrap
+  &_going_btn_wrap
+    margin 0 0 .5rem 0
+  &_name_wrap
+    border-bottom .2rem solid #7cbaff
+    display inline-block
+  &_name
+    font-size 1.3rem
+    font-weight 300
+    cursor pointer
+    line-height 1.4
+  &_going_btn
+    border 1px solid #fff
+    border-radius .3rem
+    padding .5rem 1rem
+
+  &_description
+    flex 0 0 100%
+    font-size 1rem
+    font-style italic
+    line-height 1.4
+  &_going
+    padding 1rem
+    color darken(#fff, 10)
+    &_list
+      margin-left 6rem
+    &_li
+      padding .5em 0 0 0
+      text-align center
+      max-width 200px
+    &_li:nth-child(2n)
+      border-bottom .1rem solid grey
+    &_li:nth-child(2n-1)
+      border-bottom .1rem solid grey
+// *
+//   outline 1px solid grey
+.flex-gap
+  flex-grow 1
+
+.footer
+  padding 2rem
+  text-align center
