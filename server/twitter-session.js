@@ -42,7 +42,7 @@ function twlogin_cb(req, res, next){
     if (err) {return}
     delete _tw_tokens[oauth_token]
     res.cookie('twitter', user.userToken,
-      {/*maxAge: 900000,*/ httpOnly: true})
+      {maxAge: 31556926, httpOnly: true})
     dao.db.collection(coll_name)
       .findOneAndUpdate({
         _id: user.userToken,
