@@ -151,8 +151,8 @@ vueobj = {
       vm.location_input = redirectdata.location
       vm.location_input_go()
     }
-    get({url: '/user_id', ms: 10000, cookies: true}).then(function(res){
-      vm.user_id = user_id
+    get({url: '/user_id', cookies: true}).then(function(res){
+      vm.user_id = res.user_id
     })
     history.pushState({}, 'twitter nightlight', '/')
     autoUpdate()
