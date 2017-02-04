@@ -37,7 +37,7 @@ o.connect = function() {
 
 o.create_expirey_index = function(){
   return o.db.collection(coll_name)
-  .createIndex('expiersAt',
+  .createIndex('expiresAt',
     {'expiresAt': 1},
     { expireAfterSeconds: 0 })
 }

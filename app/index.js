@@ -101,9 +101,11 @@ vueobj = {
         secs: 10000
       }).then(function(res){
         console.log('rsvp_update', Date.now())
+        data = {}
         res.map(function(rsvp){
-          vm.rsvp_data[rsvp._id] = rsvp.user_ids
+          data[rsvp._id] = rsvp.user_ids
         })
+        vm.rsvp = data
       })
     },
     going_click: function(venue){
